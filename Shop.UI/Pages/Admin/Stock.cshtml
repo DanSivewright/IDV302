@@ -1,0 +1,45 @@
+﻿@page
+@model Shop.UI.Pages.Admin.StockModel
+@{
+}
+
+    <div id="app">
+        <div class="columns">
+            <div class="column is-3">
+                <table class="table">
+                    <tr v-for="prd in products" @@click="selectProduct(prd)">
+                        <td>{{ prd.description }}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column is-6" v-if="selectedProduct">
+                <table class="table">
+                    <tr v-for="(stock, index) in selectedProduct.stock">
+                        <td><input class="input" v-model="stock.description" /></td>
+                        <td><input class="input" v-model.number="stock.quantity" /></td>
+                        <td><button class="button is-danger" @@click="deleteStock(stock.id, index)">Delete</button></td>
+                    </tr>
+                </table>
+                <a class="button is-warning" @@click="updateStock">Update Product</a>
+            </div>
+
+            <div class="column is-3" v-if="selectedProduct">
+                <h2 class="title">New Stock</h2>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" v-model="newStock.description" />
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input class="input" v-model.number="newStock.quantity" />
+                    </div>
+                </div>
+                <button class="button is-success" @@click="addStock">Add</button>
+            </div>
+
+        </div>
+    </div>
+@section Scripts {
+    <script src="~/js/admin/stock.js"></script>
+}

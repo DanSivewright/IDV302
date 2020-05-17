@@ -1,0 +1,58 @@
+﻿@page
+@model Shop.UI.Pages.Admin.IndexModel
+@{
+}
+
+<div id="app" class="container">
+    <div>
+        <div v-if="!editing">
+            <button class="button" @@click="newProduct">Create New Product</button>
+            <table class="table">
+                <tr>
+                    <th>Product</th>
+                    <th>Value</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr v-for="(prd, index) in products">
+                    <td>{{prd.name}}</td>
+                    <td>{{prd.value}}</td>
+                    <td><a @@click="editProduct(prd.id, index)">Edit</a></td>
+                    <td><a @@click="deleteProduct(prd.id, index)">Remove</a></td>
+                </tr>
+            </table>
+        </div>
+
+        <div v-else>
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" v-model="productModel.name" placeholder="Name" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Description</label>
+                <div class="control">
+                    <input class="input" v-model="productModel.description" placeholder="Description" />
+                </div>
+            </div>
+
+            <div class="field">
+                <label class="label">Value</label>
+                <div class="control">
+                    <input class="input" v-model.number="productModel.value"/>
+                </div>
+            </div>
+
+            <button class="button is-success" @@click="createProduct" v-if="!productModel.id">Create Product</button>
+            <button class="button is-warning" @@click="updateProduct" v-else>Update Product</button>
+            <button class="button" @@click="cancel">Cancel</button>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    
+    <script src="~/js/admin/products.js"></script>
+}
