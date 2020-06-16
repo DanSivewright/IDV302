@@ -32,7 +32,7 @@ namespace Shop.UI
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration["DefaultConnection"]));
             services.AddSession(options => {
                 options.Cookie.Name = "Cart";
-                options.Cookie.MaxAge = TimeSpan.FromDays(365);
+                options.Cookie.MaxAge = TimeSpan.FromMinutes(20);
             });
 
             StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];

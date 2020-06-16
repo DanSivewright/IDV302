@@ -42,18 +42,6 @@ namespace Shop.Application.Cart
 
             var cartList = JsonConvert.DeserializeObject<List<CartProduct>>(stringObject);
 
-            //var response = _ctx.Stock
-            //    .Include(x => x.Product)
-            //    .Where(x => cartList.Contains(y => y.StockId == x.Id))
-            //    .Select(x => new Response
-            //    { 
-            //        Name = x.Product.Name,
-            //        Value = $"$ {x.Product.Value.ToString("N2")}",
-            //        StockId = x.Id,
-            //        Quantity = cartList.FirstOrDefault(y => y.StockId == x.Id).Quantity
-            //    })
-            //    .ToList();
-
             var response = cartList.Select(item => _ctx.Stock.Include(x => x.Product)
                 .Where(x => x.Id == item.StockId)
                 .Select(x => new Response()

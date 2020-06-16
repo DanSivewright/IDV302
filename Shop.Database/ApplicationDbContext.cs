@@ -17,13 +17,14 @@ namespace Shop.Database
         public DbSet<Stock> Stock { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderProduct> OrderProducts { get; set; }
+        public DbSet<StockOnHold> StockOnHolds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
             builder.Entity<OrderProduct>()
-                .HasKey(x => new { x.ProductId, x.OrderId });
+                .HasKey(x => new { x.StockId, x.OrderId });
         }
     }
 }
