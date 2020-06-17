@@ -3,17 +3,75 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<div class="container test">
+    <div class="margin">
+        <h1 class="title is-1 has-text-white has-text-weight-bold">Extrado <br /> Online</h1>
+        <p class="has-text-white my-6">This is going to be a bunch of lorem ipsum</p>
+        <p class="has-text-white title is-6">View All Charities</p>
+    </div>
+</div>
 
 <div>
-    @{
-        foreach (var p in Model.Products)
-        {
-            <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")">
-                @p.Name - @p.Description - @p.Value
-            </a>
-            <br />
-        }
-    }
+    <div class="sort-container">
+
+        <p class="title is-4 has-text-weight-bold mr">
+            Browse
+        </p>
+        @*<input class="input-width input" type="email" placeholder="Search for a product">*@
+
+        <button class="ml button is-black is-rounded">Order By: Newest</button>
+
+    </div>
+   
+    <div class="columns">
+        <div class="column is-one-fifth">
+            <aside class="menu">
+                <p class="has-text-weight-bold filter-btn">
+                    Filter By:
+                </p>
+                <ul class="menu-list">
+                    <li><a>Top Sellers</a></li>
+                    <li><a>Featured</a></li>
+                    <li><a>On Sale</a></li>
+                </ul>
+                <p class="has-text-weight-bold filter-btn">
+                    Groceries
+                </p>
+                <p class="has-text-weight-bold filter-btn">
+                    Meals 
+                </p>
+            </aside>
+        </div>
+        <div class="column">
+            <div class="columns is-multiline">
+                @{
+                    foreach (var p in Model.Products)
+                    {
+                        var imagePath = p.Name + ".jpg";
+                        <div class="column is-4-desktop is-6-mobile">
+                            <a asp-page="Product" asp-route-name="@p.Name.Replace(" ", "-")" class="card">
+                                <div class="card-image">
+                                    <img class="imageCorner" src="~/iamges/@imagePath" />
+                                </div>
+                                <div class="card-content">
+                                    <p class="title is-4 has-text-weight-bold">
+                                        @p.Name
+                                    </p>
+                                    <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">
+                                       @p.Value
+                                    </p>
+
+                                    <div class="content">
+
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
 </div>
 @*@await Component.InvokeAsync("Cart")*@
 

@@ -25,9 +25,11 @@ namespace Shop.Application.StockAdmin
 
                     Id = x.Id,
                     Description = x.Description,
+                    Name = x.Name,
                     Stock = x.Stock.Select(y => new StockViewModel
                     {
                         Id = y.Id,
+                        Name = y.Name,
                         Description = y.Description,
                         Quantity = y.Quantity,
                     })
@@ -40,6 +42,7 @@ namespace Shop.Application.StockAdmin
         public class StockViewModel
         {
             public int Id { get; set; }
+            public string Name { get; set; }
             public string Description { get; set; }
             public int Quantity { get; set; }
         }
@@ -48,6 +51,7 @@ namespace Shop.Application.StockAdmin
         {
             public int Id { get; set; }
             public string Description { get; set; }
+            public string Name { get; set; }
             public IEnumerable<StockViewModel> Stock { get; set; }
         }
     }

@@ -1,26 +1,37 @@
 ﻿@page "{name}"
 @model Shop.UI.Pages.ProductModel
 @{
+    var iamge = Model.Product.Name + ".jpg";
 }
 
-<div>
-    <p>@Model.Product.Name</p>
-    <p>@Model.Product.Description</p>
-    <p>@Model.Product.Value</p>
-    <div>
-        <form method="post">
-            <label>Stock</label>
-            <select asp-for="CartViewModel.StockId">
-                @foreach (var s in Model.Product.Stock)
-                {
-                    <option value="@s.Id">@s.Description</option>
-                }
-            </select>
-            <label>Quantity: </label>
-            <input asp-for="CartViewModel.Quantity" />
-            <button type="submit">Submit</button>
-        </form>
+<div class="container">
+    <a class="desc-section" asp-page="/Index">Back</a>
+    <div class="columns is-6">
+        <div class="column is-half col-left">
+            <img class="imageCorner" src="~/iamges/@iamge" />
+        </div>
+        <div class="column col-right">
+            <p class="title is-2 has-text-weight-bold has-text-black">@Model.Product.Name</p>
+            <p class="has-text-grey-light">Order fulfilled by Takealot</p>
+            <p class="desc-section">@Model.Product.Description</p>
+            <p>@Model.Product.Value</p>
+            <div>
+                <form class="form" method="post">
+                    <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Size</p>
+                    <div class="mb select is-rounded">
+                        <select asp-for="CartViewModel.StockId">
+                            @foreach (var s in Model.Product.Stock)
+                            {
+                                <option value="@s.Id">@s.Description</option>
+                            }
+                        </select>
+                    </div>
+                    <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Quantity</p>
+                    <input class="mb input" type="number" asp-for="CartViewModel.Quantity" />
+                    <button class="mb button is-black is-rounded" type="submit">Add To Cart</button>
+                </form>
+        </div>
+        </div>
     </div>
 </div>
-@await Component.InvokeAsync("Cart")
 

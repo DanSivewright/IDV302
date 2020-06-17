@@ -42,7 +42,7 @@ namespace Shop.UI.Pages
             var stockAdded = await new AddToCartd(HttpContext.Session, _ctx).Do(CartViewModel);
 
             if (stockAdded)
-                return RedirectToPage("Cart");
+                return RedirectToPage("Index");
             else
                 // TODO: Add a warning
                 return Page();

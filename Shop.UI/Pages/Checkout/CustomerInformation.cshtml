@@ -3,47 +3,55 @@
 @{
 }
 
-    <div>
+    <div class="container">
         <form method="post">
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">First Name</p>
                 <span asp-validation-for="CustomerInformation.FirstName"></span>
-                <input asp-for="CustomerInformation.FirstName" />
+                <input class="input" asp-for="CustomerInformation.FirstName" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Last Name</p>
                 <span asp-validation-for="CustomerInformation.LastName"></span>
-                <input asp-for="CustomerInformation.LastName" />
+                <input class="input" asp-for="CustomerInformation.LastName" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Phone Number</p>
                 <span asp-validation-for="CustomerInformation.PhoneNumber"></span>
-                <input asp-for="CustomerInformation.PhoneNumber" />
+                <input class="input" asp-for="CustomerInformation.PhoneNumber" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Email</p>
                 <span asp-validation-for="CustomerInformation.Email"></span>
-                <input asp-for="CustomerInformation.Email" />
+                <input class="input" asp-for="CustomerInformation.Email" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Address 1</p>
                 <span asp-validation-for="CustomerInformation.Address1"></span>
-                <input asp-for="CustomerInformation.Address1" />
+                <input class="input" asp-for="CustomerInformation.Address1" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Address 2</p>
                 <span asp-validation-for="CustomerInformation.Address2"></span>
-                <input asp-for="CustomerInformation.Address2" />
+                <input class="input" asp-for="CustomerInformation.Address2" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">City</p>
                 <span asp-validation-for="CustomerInformation.City"></span>
-                <input asp-for="CustomerInformation.City" />
+                <input class="input" asp-for="CustomerInformation.City" />
             </div>
 
-            <div>
+            <div class="mb">
+                <p class="mbSmall has-text-weight-bold has-text-grey-light is-size-7">Postal Code</p>
                 <span asp-validation-for="CustomerInformation.PostCode"></span>
-                <input asp-for="CustomerInformation.PostCode" />
+                <input class="input" asp-for="CustomerInformation.PostCode" />
             </div>
-            <button type="submit">Submit</button>
+            <button class="button is-black is-rounded" type="submit">Checout</button>
         </form>
     </div>

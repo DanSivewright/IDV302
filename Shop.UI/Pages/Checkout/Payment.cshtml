@@ -3,11 +3,11 @@
 @{
 }
 
-<h1>Payment</h1>
+<h1 class="title is-3 has-text-weight-bold has-text-black mb">Payment</h1>
 <div>
     <form method="post" id="payment-form">
-        <div class="form-row">
-            <label for="card-element">
+        <div class="form-row mb">
+            <label class="mb has-text-weight-bold has-text-grey-light is-size-7" for="card-element">
                 Credit or debit card
             </label>
             <div id="card-element">
@@ -18,7 +18,7 @@
             <div id="card-errors" role="alert"></div>
         </div>
 
-        <button>Submit Payment</button>
+        <button class="button is-black is-rounded">Submit Payment</button>
     </form>
 </div>
 @section scripts {
